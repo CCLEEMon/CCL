@@ -2,18 +2,17 @@ backend:
   name: github
   repo: CCLEEMon/CCL
   branch: main
-  auth_type: pkce 
+  base_url: https://sveltia-cms-auth.leecc1531.workers.dev
+  auth_endpoint: callback
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "pages"
-    label: "页面"
-    files:
-      - label: "首页"
-        name: "index"
-        file: "src/pages/index.astro"
-        fields:
-          - { label: "标题", name: "title", widget: "string" }
-          - { label: "内容", name: "body", widget: "markdown" }
+  - name: pages
+    label: 页面
+    folder: src/pages
+    create: true
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 内容, name: body, widget: markdown }
