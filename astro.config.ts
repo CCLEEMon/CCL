@@ -4,8 +4,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ccleemon.github.io',
-  base: '/CCL',
+  site: 'https://ccl.aigent.ren',
   integrations: [icon()],
   server: {
     host: '0.0.0.0',
