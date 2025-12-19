@@ -107,10 +107,13 @@ import { Icon } from 'astro-icon/components';
 
           <button
             type="submit"
+            id="submitBtn"
             class="bg-mono-black w-full rounded-lg px-6 py-4 font-semibold text-white shadow-lg"
           >
             {siteConfig.contact.form.cta}
           </button>
+
+          <p id="formMessage" class="text-center text-sm hidden"></p>
 
           <p class="text-mono-gray text-center text-xs leading-relaxed">
             By submitting this form, you agree to our
@@ -123,14 +126,38 @@ import { Icon } from 'astro-icon/components';
   </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+  emailjs.init('Ws_VkjPOkP0RTplWF');
+
   document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMessage = document.getElementById('formMessage');
+
     if (contactForm) {
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
+        
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        emailjs.sendForm('service_rsuv6gk', 'template_h3awsdn', contactForm)
+          .then(() => {
+            formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+            formMessage.className = 'text-center text-sm text-green-600';
+            formMessage.classList.remove('hidden');
+            contactForm.reset();
+          })
+          .catch(() => {
+            formMessage.textContent = 'Sorry, there was an error. Please try again.';
+            formMessage.className = 'text-center text-sm text-red-600';
+            formMessage.classList.remove('hidden');
+          })
+          .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+          });
       });
     }
   });
