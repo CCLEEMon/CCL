@@ -25,18 +25,7 @@ A modern, production-ready landing page template for AI and SaaS products. Built
 - Contact form
 - Footer
 
-## Quick Start
 
-```bash
-# Install dependencies
-npm install
-
-# Start dev server
-npm run dev
-
-# Build for production
-npm run build
-```
 
 ## Customization
 
@@ -45,12 +34,6 @@ Edit content in:
 - `src/config.ts` - Site configuration
 - `src/content/*.ts` - Features, testimonials, FAQ
 - `src/styles/globals.css` - Colors & animations
-
-## Deploy
-
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-Works on Replit, Vercel, Netlify, and GitHub Pages.
 
 ## License
 
