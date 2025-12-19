@@ -2,14 +2,21 @@
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ccl.aigent.ren',
   base: '/',
   integrations: [icon()],
+
   server: {
     host: '0.0.0.0',
     port: 5000,
     allowedHosts: true, // don't touch this!
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
