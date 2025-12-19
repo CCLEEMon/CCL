@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: CCLEEMon/CCL
   branch: main
 
 media_folder: "public/images/uploads"
