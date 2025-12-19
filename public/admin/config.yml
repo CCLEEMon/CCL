@@ -1,3 +1,5 @@
+local_backend: false
+
 backend:
   name: github
   repo: CCLEEMon/CCL
