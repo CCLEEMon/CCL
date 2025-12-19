@@ -3,8 +3,7 @@ backend:
   repo: CCLEEMon/CCL
   branch: main
   base_url: https://sveltia-cms-auth.leecc1531.workers.dev
-  auth_endpoint: callback
-
+  
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
